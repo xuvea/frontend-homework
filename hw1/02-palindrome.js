@@ -4,7 +4,6 @@ elem.addEventListener('input', handleInput);
 
 function handleInput() {
   element = document.getElementById('response');
-  console.log(elem.value);
   if (isNaN(elem.value)) {
     element.classList.remove('text-success');
     element.classList.add('text-danger');
