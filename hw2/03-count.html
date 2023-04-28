@@ -9,16 +9,17 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" />
     <script defer src="03-count.js"></script>
   </head>
-  <body>
+  <body style="background-color: #01435C;">
     <main>
-      <h1>Exercise 03 - Count</h1>
+      <div class="card position-absolute mt-5 p-3 pb-0 start-50 translate-middle-x">
+      <h1 class="d-flex justify-content-center">Exercise 03 - Count</h1>
       <hr />
       <div>
         <label>Highlight all occurences of a word:</label>
         <input />
       </div>
       <hr />
-      <div>
+      <div class="mb-3" id="searchedText">
         It was the best of times, it was the worst of times, it was the age of
         wisdom, it was the age of foolishness, it was the epoch of belief, it
         was the epoch of incredulity, it was the season of Light, it was the
@@ -29,6 +30,7 @@
         noisiest authorities insisted on its being received, for good or for
         evil, in the superlative degree of comparison only.
       </div>
+    </div>
     </main>
   </body>
 </html>
