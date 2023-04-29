@@ -13,8 +13,8 @@ evil, in the superlative degree of comparison only.`;
 function handleKeyDown() {
   const text = originalText;
   const searchInput = input.value;
-  document.getElementById('searchedText').innerHTML = text.replaceAll(searchInput, `<span style= "background-color: yellow;">${searchInput}</span>`);
-  console.log(text);
+  document.getElementById('searchedText').innerHTML = 
+  text.replaceAll(searchInput, `<span style= "background-color: yellow;">${searchInput}</span>`);
 }
 
 input.addEventListener('input', handleKeyDown);

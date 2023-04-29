@@ -20,8 +20,10 @@ function changeBackground() {
 function randomColor() {
   const randomBackground = document.getElementById('page-background')
   const range = 266;
-  randomBackground.style.backgroundColor = `rgba(${Math.random() * range}, ${Math.random() * range}, 
-  ${Math.random() * range}, ${Math.random() * 0.8})`;
+  randomBackground.style.backgroundColor = `rgba(${Math.random() * range}, 
+  ${Math.random() * range}, 
+  ${Math.random() * range}, 
+  ${Math.random() * 0.8})`;
 }
 
 function startAndStop() {
