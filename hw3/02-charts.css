@@ -1,0 +1,13 @@
+body {
+  background-color: var(--cyan);
+}
+
+h1 {
+  text-align: center;
+}
+
+.donut-chart {
+  padding: 2rem;
+  border-radius: 0.8rem;
+  background-color: var(--white);
+}
