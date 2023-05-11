@@ -10,7 +10,6 @@ function getCharacters(url){
     return response.json();
   })
   .then(data => {
-    console.log('Data', data);
     data.forEach((character) =>{
       console.log(character)
       const element = document.createElement('div');

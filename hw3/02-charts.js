@@ -28,25 +28,78 @@ const borderColors = [
 
 // url for the Thrones API
 const url = 'https://thronesapi.com/api/v2/Characters';
+const houses = [];
+const numbOfHouseMembers = [];
+
+const parseData = async () => {
+  await fetch(url)
+  .then(response => {
+    console.log('Success', response);
+    return response.json();
+  })
+  .then(data => {
+    data.forEach((character) => {
+      if(character.family === 'House Lanister' || character.family === 'Lanister')
+        character.family = 'House Lannister';
+      if(character.family === 'Tararyan')
+        character.family = 'House Targaryen'
+      const houseIndex = houses.findIndex((house) => { 
+        if(house !== character.family){
+          if(house.split(' ')[1] === character.family)
+            return house.split(' ')[1] === character.family;
+        }
+        else
+          return house === character.family;
+        });
+      if ( houseIndex !== -1 ) {
+        numbOfHouseMembers[houseIndex] += 1;
+      }
+      else {
+        if (character.family.split(' ')[0] === 'House'){
+          houses.push(character.family);
+          numbOfHouseMembers.push(1);
+        }
+        else if(houses.includes('None')){
+          numbOfHouseMembers[houses.lastIndexOf('None')] += 1;
+        }
+        else{
+          houses.push('None');
+          numbOfHouseMembers.push(1);
+        }
+      }
+    })
+  })
+  .catch(error => {
+    console.error('request failed', error);
+  });
+  console.log(houses);
+  console.log(numbOfHouseMembers);
+
+  renderChart();
+}
+
 
 const renderChart = () => {
   const donutChart = document.querySelector('.donut-chart');
-
   new Chart(donutChart, {
     type: 'doughnut',
     data: {
-      labels: ['label', 'label', 'label', 'label'],
-      datasets: [
-        {
+      labels: houses,
+      datasets: [{
           label: 'My First Dataset',
-          data: [1, 12, 33, 5],
+          data: numbOfHouseMembers,
           backgroundColor: backgroundColors,
           borderColor: borderColors,
           borderWidth: 1,
         },
       ],
     },
+    options: {
+      legend: {
+        position: 'bottom'
+      }
+    }
   });
 };
 
-renderChart();
+parseData(url);
