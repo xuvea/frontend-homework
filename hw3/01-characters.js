@@ -11,7 +11,6 @@ function getCharacters(url){
   })
   .then(data => {
     data.forEach((character) =>{
-      console.log(character)
       const element = document.createElement('div');
       const name = document.createElement('h2');
       const title = document.createElement('p');

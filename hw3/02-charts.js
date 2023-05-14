@@ -39,6 +39,7 @@ const parseData = async () => {
   })
   .then(data => {
     data.forEach((character) => {
+      console.log(character.family)
       if(character.family === 'House Lanister' || character.family === 'Lanister')
         character.family = 'House Lannister';
       if(character.family === 'Tararyan')

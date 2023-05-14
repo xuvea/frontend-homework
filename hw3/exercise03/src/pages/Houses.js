@@ -1,6 +1,7 @@
 import React from "react";
 import { Doughnut } from "react-chartjs-2";
 import { ArcElement, Chart, Legend } from "chart.js";
+import "./Houses.css"
 Chart.register(ArcElement, Legend);
 
 const Houses = (props) => {
@@ -77,7 +78,9 @@ const Houses = (props) => {
   };
 
   const chartOptions = {
-    plugins: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {  
       legend: {
         position: "bottom",
       },
@@ -86,10 +89,10 @@ const Houses = (props) => {
 
   return (
     <>
-      <div className=" m-5" id="houses">
+      <div className=" m-3" id="houses">
         <h1 className="text-center">Game Of Thrones House Memeber Count</h1>
         <div
-          className="container-fluid justify-content-center align-items-center w-50"
+          className="chart-container container-fluid justify-content-center align-items-center w-50 mt-5"
           id="result"
         >
           <Doughnut data={chartData} options={chartOptions} />
