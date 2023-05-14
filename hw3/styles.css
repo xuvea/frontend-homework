@@ -5,6 +5,16 @@
   --cyan: #17a2b8;
 }
 
+.figure {
+  border: 0.5rem solid var(--cyan);
+}
+
+.figure:hover {
+  border: 0.5rem solid var(--blue);
+  background-color: var(--blue);
+  color: var(--white);
+}
+
 body {
   background-color: var(--cyan);
 }
